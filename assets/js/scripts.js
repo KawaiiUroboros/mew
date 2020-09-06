@@ -1,6 +1,7 @@
 (function(window, undefined) {
   'use strict';
-
+ 
+  $('input[name="daterange"]').daterangepicker();
   /*
   NOTE:
   ------

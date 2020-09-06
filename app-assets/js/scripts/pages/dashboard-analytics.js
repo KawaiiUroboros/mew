@@ -234,13 +234,44 @@ $(window).on("load", function () {
     },
     series: [{
       name: '2019',
-      data: [80, 95, 150, 210, 140, 230, 300, 280, 130]
+      data: randomSeries()
     }, {
       name: '2018',
-      data: [50, 70, 130, 180, 90, 180, 270, 220, 110]
+      data: randomSeries()
     }],
     xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+      categories: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+      ],
       axisBorder: {
         show: false
       },
@@ -254,9 +285,9 @@ $(window).on("load", function () {
       }
     },
     yaxis: {
-      min: 0,
-      max: 300,
-      tickAmount: 3,
+      min: 1.75,
+      max: 2.85,
+      tickAmount: 10.5,
       labels: {
         style: {
           color: $gray_light
@@ -273,6 +304,13 @@ $(window).on("load", function () {
         }
       }
     }
+  }
+  function randomSeries() {
+    let arr = [];
+    for (let i = 0; i < 15; i++) {
+      arr.push((1.75 + Math.random() * (2.8 - 1.75)).toFixed(2));
+    }
+    return arr;
   }
 
   var analyticsBarChart = new ApexCharts(
