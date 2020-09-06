@@ -836,62 +836,110 @@ $(window).on("load", function () {
   // Growth Radial Chart
   // --------------------
   var growthChartOptions = {
-    chart: {
-      height: 200,
-      type: 'radialBar',
-      sparkline: {
-        show: true
-      }
+    series: [
+      1.85 +
+        1.95 +
+        2.15 +
+        2.0 +
+        1.75 +
+        2.45 +
+        2.55 +
+        1.8 +
+        2.3 +
+        1.85 +
+        1.85 +
+        2.65 +
+        1.85 +
+        2.2 +
+        2.25 +
+        1.85 +
+        2.45 +
+        2.7 +
+        2.0 +
+        1.95 +
+        2.2 +
+        2.35 +
+        2.55 +
+        2.45 +
+        2.65 +
+        2.4 +
+        2.55 +
+        1.8 +
+        2.15 +
+        2.0,
+    ],
+    title: {
+      text: 'Зарядка батареи сейчас',
     },
-    grid: {
-      show: false,
+    chart: {
+      offsetY: 15,
+      height: 'auto',
+      type: 'radialBar',
     },
     plotOptions: {
       radialBar: {
-        size: 100,
-        startAngle: -135,
-        endAngle: 135,
-        offsetY: 40,
-        hollow: {
-          size: '60%',
-        },
         track: {
-          strokeWidth: '90%',
-          background: '#fff'
+          show: false,
         },
+        startAngle: -90,
+        endAngle: 90,
         dataLabels: {
-          value: {
-            offsetY: -10,
-            color: '#475f7b',
-            fontSize: '26px'
-          },
           name: {
-            fontSize: '15px',
-            color: "#596778",
-            offsetY: 30
+            offsetY: -25,
+            fontSize: '14px',
+            fontWeight: 700,
           },
-        }
+          value: {
+            offsetY: -20,
+            fontSize: '20px',
+            fontWeight: 400,
+          },
+          total: {
+            show: false,
+          },
+        },
       },
     },
-    colors: [$danger],
+
     fill: {
       type: 'gradient',
       gradient: {
-        shade: 'dark',
+        shade: 'light',
         type: 'horizontal',
-        shadeIntensity: 0.5,
-        gradientToColors: [$primary],
         inverseColors: true,
-        opacityFrom: 1,
-        opacityTo: 1,
-        stops: [0, 100]
+        colorStops: [
+          {
+            offset: 0,
+            color: '#ff0000',
+            opacity: 1,
+          },
+          {
+            offset: 20,
+            color: '#ffaf00',
+            opacity: 1,
+          },
+          {
+            offset: 50,
+            color: '#f9ff00',
+            opacity: 1,
+          },
+          {
+            offset: 80,
+            color: '#b0ff00',
+            opacity: 1,
+          },
+          {
+            offset: 100,
+            color: '#00ff00',
+            opacity: 1,
+          },
+        ],
       },
     },
     stroke: {
-      dashArray: 3
+      dashArray: 6,
     },
-    series: [78],
-    labels: ['Growth'],
+    labels: ['Уровень зарядки'],
   }
 
   var growthChart = new ApexCharts(
