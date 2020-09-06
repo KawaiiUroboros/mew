@@ -8,6 +8,94 @@
   color: #b3c0ce;
 }
 
+.form {
+  height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  display: grid;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  margin: auto;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+}
+input + label {
+  outline: 2px solid transparent;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  -webkit-transition: outline .25s ease, -webkit-transform .15s ease;
+  transition: outline .25s ease, -webkit-transform .15s ease;
+  transition: outline .25s ease, transform .15s ease;
+  transition: outline .25s ease, transform .15s ease, -webkit-transform .15s ease;
+}
+input:focus + label {
+  outline: 2px solid var(--focus);
+}
+input:active + label {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+label {
+  --w: 40vw;
+  --h: calc(var(--w) / 2);
+  --br: calc(var(--w) / 1);
+  position: relative;
+  background: var(--white);
+  display: block;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--br);
+  box-shadow: 0px calc(var(--w) / 7.5) calc(var(--w) / 3.75) 0px rgba(51, 51, 51, 0.1);
+  cursor: pointer;
+  text-indent: 200vw;
+  overflow: hidden;
+  --size: calc(var(--w) / 3);
+  --offset: calc(var(--w) / 12);
+}
+label::before, label::after {
+  content: "";
+  position: absolute;
+}
+label::before {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--coal);
+  left: 0px;
+  top: 50%;
+  -webkit-transform: translate(var(--offset), -50%);
+          transform: translate(var(--offset), -50%);
+  box-shadow: calc(var(--w) - calc(var(--offset) * 2) - var(--size)) 0px 0px var(--white);
+  z-index: 1;
+}
+label::after {
+  width: var(--size);
+  height: var(--size);
+  left: 0;
+  top: 50%;
+  background: var(--coal);
+  -webkit-transform: translate(-100%, -50%) scale(1);
+          transform: translate(-100%, -50%) scale(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform .35s ease;
+  transition: -webkit-transform .35s ease;
+  transition: transform .35s ease;
+  transition: transform .35s ease, -webkit-transform .35s ease;
+}
+
+input:checked + label::after {
+  -webkit-transform: translate(-100%, -50%) scale(5);
+          transform: translate(-100%, -50%) scale(5);
+}
+
 .show > .btn-outline-secondary.dropdown-toggle {
   color: #FFFFFF !important;
 }
